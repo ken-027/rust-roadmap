@@ -2,7 +2,7 @@
 
 Personal roadmap: TypeScript/JavaScript developer → advanced Rust CLI engineer, through 25 progressively harder command-line projects across 8 phases. Interactive tracker lives in `rust-cli-mastery-roadmap.html`; this file is the plain-text reference.
 
-**Live page:** https://ken-027.github.io/rust-roadmap/index.html
+**Live page:** [https://rust-roadmap.kdevtech.com](https://rust-roadmap.kdevtech.com)
 
 ## Quick start
 
