@@ -17,6 +17,23 @@ cargo new cli-apps/basic/calculator
 cd cli-apps/tools/progress-scanner && cargo run
 ```
 
+## Make commands
+
+Run `make` or `make help` to list the available commands.
+
+```sh
+# run the calculator (operator: add, subtract, multiply, divide, or mod)
+make calculator operator=add
+
+# refresh roadmap progress
+make scan
+
+# test, lint, or check formatting for an app
+make test app=calculator
+make clippy app=calculator
+make fmt app=calculator
+```
+
 ## How progress tracking works
 
 Progress is derived from disk, not clicks. A project counts as **done** when its folder contains a `Cargo.toml`:
@@ -50,7 +67,7 @@ Each phase page (in the HTML) has concepts with runnable TS↔Rust comparisons, 
 
 ## Project checklist
 
-- [ ] `basic/calculator` — CLI Calculator
+- [x] `basic/calculator` — CLI Calculator
 - [ ] `basic/unit-converter` — Unit Converter
 - [ ] `basic/password-generator` — Password Generator
 - [ ] `basic/todo` — Todo CLI
