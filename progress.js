@@ -1,1 +1,1 @@
-window.diskProgress={};
+window.diskProgress={"basic/calculator":true};
