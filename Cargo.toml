@@ -2,6 +2,7 @@
 resolver = "3"
 members = [
     "cli-apps/basic/calculator",
+    "cli-apps/basic/unit-converter",
     "cli-apps/tools/progress-scanner",
     # common lib
     "cli-apps/shared/common"

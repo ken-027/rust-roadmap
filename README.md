@@ -68,7 +68,7 @@ Each phase page (in the HTML) has concepts with runnable TS↔Rust comparisons, 
 ## Project checklist
 
 - [x] `basic/calculator` — CLI Calculator
-- [ ] `basic/unit-converter` — Unit Converter
+- [x] `basic/unit-converter` — Unit Converter
 - [ ] `basic/password-generator` — Password Generator
 - [ ] `basic/todo` — Todo CLI
 - [ ] `basic/json-formatter` — JSON Formatter
