@@ -2,11 +2,10 @@ mod computation;
 mod data;
 mod operations;
 mod tests;
-mod util;
 
+use common::{clear_screen, readline};
 use std::{println, thread, time::Duration};
 
-use crate::util::{clear_screen, readline};
 use clap::Parser;
 
 fn main() {

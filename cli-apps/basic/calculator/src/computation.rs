@@ -1,4 +1,4 @@
-use crate::util::readline;
+use common::readline;
 
 pub fn compute<T>(operation: &str, function: fn(v: &[f64]) -> T) -> T {
     let mut values: Vec<f64> = vec![];

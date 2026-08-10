@@ -11,3 +11,19 @@ pub fn clear_screen() {
     print!("\x1B[2J\x1B[1;1H");
     io::stdout().flush().unwrap();
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn readline_does_not_panic() {
+        let mut test_value = String::new();
+        readline("Test: ", &mut test_value);
+    }
+
+    #[test]
+    fn clear_screen_does_not_panic() {
+        clear_screen();
+    }
+}
