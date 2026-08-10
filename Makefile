@@ -1,24 +1,23 @@
+ifeq ($(OS),Windows_NT)
+SHELL := C:/Program Files/Git/bin/bash.exe
+endif
+
 .PHONY: help calculator progress-scanner test clippy fmt
 
-help:
-	@echo Available commands:
-	@echo "  make calculator operator=add       Run the calculator"
-	@echo "  make scan              Refresh roadmap progress"
-	@echo "  make test app=calculator           Run an app's tests"
-	@echo "  make clippy app=calculator         Run Clippy for an app"
-	@echo "  make fmt app=calculator            Check an app's formatting"
+help: ## list targets
+	@grep -hE '^[a-zA-Z0-9_-]+:.*##' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "  \033[36m%-32s\033[0m %s\n", $$1, $$2}'
 
-calculator:
+calculator: ## run calculator app (operator=+|-|*|/)
 	cargo run -p calculator -- -o ${operator}
 
-scan:
+scan: ## run progress-scanner app
 	cargo run -p progress-scanner
 
-test:
+test: ## run tests for app (app=<name>)
 	cargo test -p ${app}
 
-clippy:
+clippy: ## run clippy for app (app=<name>)
 	cargo clippy -p ${app}
 
-fmt:
+fmt: ## check formatting for app (app=<name>)
 	cargo fmt -p ${app} --check
