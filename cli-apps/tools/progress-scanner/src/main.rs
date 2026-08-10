@@ -21,7 +21,13 @@ fn repo_root() -> PathBuf {
 /// Pulls the passed-count out of a `cargo test` summary line, e.g.
 /// "test result: ok. 3 passed; 0 failed; ..." -> Some(3).
 fn parse_passed_count(line: &str) -> Option<u32> {
-    line.split("passed").next()?.trim().rsplit(' ').next()?.parse().ok()
+    line.split("passed")
+        .next()?
+        .trim()
+        .rsplit(' ')
+        .next()?
+        .parse()
+        .ok()
 }
 
 /// True if `cargo test` succeeds in `project_dir` AND at least one test
@@ -123,7 +129,11 @@ mod tests {
 
         // Cargo.toml + a passing #[test] -> done.
         fs::create_dir_all(tmp.join("basic/calculator/src")).unwrap();
-        fs::write(tmp.join("basic/calculator/Cargo.toml"), cargo_toml("calculator")).unwrap();
+        fs::write(
+            tmp.join("basic/calculator/Cargo.toml"),
+            cargo_toml("calculator"),
+        )
+        .unwrap();
         fs::write(
             tmp.join("basic/calculator/src/main.rs"),
             "fn main() {}\n#[test]\nfn it_works() { assert_eq!(1 + 1, 2); }\n",
@@ -132,7 +142,11 @@ mod tests {
 
         // Cargo.toml exists but no test case -> not counted as done.
         fs::create_dir_all(tmp.join("basic/no-tests/src")).unwrap();
-        fs::write(tmp.join("basic/no-tests/Cargo.toml"), cargo_toml("no-tests")).unwrap();
+        fs::write(
+            tmp.join("basic/no-tests/Cargo.toml"),
+            cargo_toml("no-tests"),
+        )
+        .unwrap();
         fs::write(tmp.join("basic/no-tests/src/main.rs"), "fn main() {}\n").unwrap();
 
         // #[test] present only in a comment -> cargo runs 0 tests -> not done.

@@ -84,10 +84,19 @@ fn temperature_celsius_is_identity() {
 
 #[test]
 fn temperature_fahrenheit_to_and_value_from_base() {
-    assert!(approx_eq(Temperature::Fahrenheit.value_from_base(32.0), 0.0));
-    assert!(approx_eq(Temperature::Fahrenheit.value_from_base(212.0), 100.0));
+    assert!(approx_eq(
+        Temperature::Fahrenheit.value_from_base(32.0),
+        0.0
+    ));
+    assert!(approx_eq(
+        Temperature::Fahrenheit.value_from_base(212.0),
+        100.0
+    ));
     assert!(approx_eq(Temperature::Fahrenheit.value_to_base(0.0), 32.0));
-    assert!(approx_eq(Temperature::Fahrenheit.value_to_base(100.0), 212.0));
+    assert!(approx_eq(
+        Temperature::Fahrenheit.value_to_base(100.0),
+        212.0
+    ));
 }
 
 #[test]
