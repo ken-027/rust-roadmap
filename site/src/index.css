@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+@theme {
+  --color-rust: #f97316;
+  --color-rust-dark: #c2410c;
+  --color-ink: #0f172a;
+  --font-mono: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+}
+@layer base {
+  html { color-scheme: dark; scrollbar-width: thin; scrollbar-color: var(--color-slate-700) var(--color-slate-950); }
+  body { @apply bg-slate-950 text-slate-200 antialiased; }
+  button, input { @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950; }
+  button:not(:disabled), [role="button"] { cursor: pointer; }
+  ::-webkit-scrollbar, dialog::-webkit-scrollbar, dialog *::-webkit-scrollbar { @apply h-1.5 w-1.5; }
+  ::-webkit-scrollbar-track, dialog::-webkit-scrollbar-track, dialog *::-webkit-scrollbar-track { @apply bg-slate-950; }
+  ::-webkit-scrollbar-thumb, dialog::-webkit-scrollbar-thumb, dialog *::-webkit-scrollbar-thumb { @apply rounded-full bg-slate-700 hover:bg-orange-500/60; }
+  dialog, dialog * { scrollbar-width: thin; scrollbar-color: var(--color-slate-700) var(--color-slate-950); }
+}
+@layer utilities {
+  .glass { @apply border border-white/10 bg-slate-900/70 backdrop-blur-xl; }
+  .code-chip { @apply rounded-md border border-white/10 bg-slate-950 px-2 py-1 font-mono text-xs text-slate-300; }
+  .gradient-text { @apply bg-gradient-to-r from-orange-300 via-orange-500 to-amber-300 bg-clip-text text-transparent; }
+  .code-panel { @apply overflow-x-auto border-0 bg-transparent p-4 font-mono text-xs leading-6; }
+  .sample-shell { @apply overflow-hidden rounded-2xl border shadow-xl shadow-black/20; }
+  .sample-shell-ts { @apply border-blue-400/25 bg-blue-950/20; }
+  .sample-shell-rust { @apply border-orange-400/25 bg-orange-950/20; }
+  .sample-header { @apply flex items-center justify-between border-b px-4 py-3; }
+  .sample-header-ts { @apply border-blue-400/15 bg-blue-400/10; }
+  .sample-header-rust { @apply border-orange-400/15 bg-orange-400/10; }
+  .language-badge { @apply rounded-full border px-2.5 py-1 font-mono text-[10px] font-bold uppercase tracking-wider; }
+  .comparison-arrow { @apply hidden items-center justify-center text-2xl text-slate-600 lg:flex; }
+  pre[class*="language-"] { margin: 0 !important; background: transparent !important; text-shadow: none !important; }
+  code[class*="language-"] { color: #e2e8f0; background: transparent !important; text-shadow: none !important; }
+  .token.comment, .token.prolog, .token.doctype, .token.cdata { color: #64748b !important; font-style: italic; }
+  .token.keyword, .token.control, .token.module, .token.imports { color: #f472b6 !important; font-weight: 600; }
+  .token.function, .token.function-variable { color: #60a5fa !important; }
+  .token.class-name, .token.builtin, .token.type-definition { color: #c4b5fd !important; }
+  .token.string, .token.char, .token.template-string, .token.attr-value { color: #86efac !important; }
+  .token.number { color: #fbbf24 !important; }
+  .token.boolean, .token.constant, .token.symbol { color: #fb7185 !important; }
+  .token.operator, .token.entity, .token.url { color: #67e8f9 !important; }
+  .token.punctuation { color: #94a3b8 !important; }
+  .token.property, .token.parameter, .token.variable { color: #e2e8f0 !important; }
+  .token.macro, .token.annotation, .token.decorator, .token.attribute { color: #f59e0b !important; }
+  .token.lifetime { color: #2dd4bf !important; font-style: italic; }
+  .token.regex { color: #fda4af !important; }
+  .token.namespace { color: #a5b4fc !important; }
+  .token.important { color: #fb923c !important; font-weight: 700; }
+  .syntax-legend { @apply flex flex-wrap gap-x-4 gap-y-2 border-t border-white/10 px-4 py-3 text-[10px] text-slate-500; }
+  .syntax-dot { @apply mr-1.5 inline-block h-2 w-2 rounded-full; }
+}
