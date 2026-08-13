@@ -105,11 +105,11 @@ fn main() -> ExitCode {
     // ponytail: site/public is a copy, not a symlink (Windows-friendly); keep
     // it in sync here too so the React app doesn't show stale progress.
     let site_out = root.join("site/public/progress.js");
-    if site_out.parent().is_some_and(Path::is_dir) {
-        if let Err(err) = fs::write(&site_out, &js) {
-            eprintln!("error: could not write {}: {err}", site_out.display());
-            return ExitCode::FAILURE;
-        }
+    if site_out.parent().is_some_and(Path::is_dir)
+        && let Err(err) = fs::write(&site_out, &js)
+    {
+        eprintln!("error: could not write {}: {err}", site_out.display());
+        return ExitCode::FAILURE;
     }
 
     println!(
