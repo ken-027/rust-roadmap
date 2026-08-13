@@ -37,6 +37,12 @@ jobs:
         working-directory: site
         run: npm run build
 
+      - name: Add .nojekyll
+        run: mkdir -p site/dist && touch site/dist/.nojekyll
+
+      - name: List build output
+        run: ls -la site/dist || true
+
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3
